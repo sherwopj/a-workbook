@@ -1,0 +1,16 @@
+
+ 
+  <div class="card-container">
+    <md-card *ngFor="let product of products">
+      <md-card-title>£{{product.price}}</md-card-title>
+      <img md-card-image [alt]="product.shortDescription" src="{{product.imageUrl}}">
+      
+      <!--<md-card-content class="secondary">
+        Very ipsum such dolor amet wow very divs very content concern, very much develop much spans
+        much layer so so scare such spans such padding many beta very layer much excuse.
+      </md-card-content>-->
+      <md-card-actions align="end">
+        <button md-icon-button color="primary"><md-icon>favorite_border</md-icon></button>
+      </md-card-actions>
+    </md-card>
+  </div>

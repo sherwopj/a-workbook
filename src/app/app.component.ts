@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { MdCoreModule } from '@angular2-material/core';
+import { MdCoreModule, MdUniqueSelectionDispatcher } from '@angular2-material/core';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
 import {MdSidenavLayout, MdSidenav} from '@angular2-material/sidenav';
@@ -27,20 +27,22 @@ import {MdRadioButton, MdRadioGroup} from '@angular2-material/radio';
     MdRadioGroup,
     MdRadioButton
   ],
-  providers: [],
+  providers: [MdUniqueSelectionDispatcher],
 })
 export class AppComponent {
   formShowing: boolean = false;
   views: Object[] = [
     {
-      name: "My Account",
-      description: "Edit my account information",
-      icon: "assignment ind"
+      name: "Home",
+      description: "Take me Home",
+      icon: "home",
+      routerLink: ""
     },
     {
-      name: "Potential dates",
-      description: "Find your soulmate!",
-      icon: "pets"
+      name: "Product List",
+      description: "Show me the products!",
+      icon: "view_module",
+      routerLink: "products/"
     }
   ];
   products: Object[] = [

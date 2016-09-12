@@ -42,6 +42,7 @@
     "@types/hammerjs": "^2.0.32",
     "@types/jasmine": "^2.2.30",
     "angular-cli": "1.0.0-beta.11-webpack.8",
+    "angular2-logger": "^0.4.5",
     "codelyzer": "~0.0.26",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
@@ -52,6 +53,6 @@
     "protractor": "4.0.3",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "^2.0.0"
+    "typescript": "2.0.0"
   }
 }

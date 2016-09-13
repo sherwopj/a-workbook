@@ -20,7 +20,7 @@ md-sidenav-layout {
 }
 
 .form {
-  width: 400px;
+  width: 300px;
   position: absolute;
   right: 3%;
   z-index: 1;

@@ -4,11 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { MdIconModule } from '@angular2-material/icon';
-import { Logger } from 'angular2-logger/core';
-
-import { ProductService } from './product.service';
-import { BackendService } from './backend.service';
+import { MaterialModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -25,10 +21,9 @@ import { ProductListComponent } from './product-list/product-list.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdIconModule.forRoot(),
+    MaterialModule.forRoot(),
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [ProductService, BackendService, Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

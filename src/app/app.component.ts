@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MdCoreModule, MdUniqueSelectionDispatcher } from '@angular2-material/core';
+import {Component} from '@angular/core';
+import './rxjs-operators';
+import {MdCoreModule, MdUniqueSelectionDispatcher} from '@angular2-material/core';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
 import {MdSidenavLayout, MdSidenav} from '@angular2-material/sidenav';

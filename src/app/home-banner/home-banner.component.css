@@ -1,0 +1,18 @@
+.home-banner {
+    height: 100%;
+    background: url("http://www.aworkbook.com/wp-content/uploads/SLIDE-1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form {
+  width: 250px;
+  height: 50%;
+  z-index: 1;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}

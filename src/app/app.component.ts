@@ -1,34 +1,11 @@
 import {Component} from '@angular/core';
 import './rxjs-operators';
-import {MdCoreModule, MdUniqueSelectionDispatcher} from '@angular2-material/core';
-import {MdToolbar} from '@angular2-material/toolbar';
-import {MdButton} from '@angular2-material/button';
-import {MdSidenavLayout, MdSidenav} from '@angular2-material/sidenav';
-import {MdList,MdListItem,MdListDivider,MdListAvatar,MdListModule} from '@angular2-material/list';
-import {MdCard,MdCardModule,MdCardActions,MdCardContent,MdCardHeader,MdCardSubtitle,MdCardTitle,MdCardTitleGroup} from '@angular2-material/card';
-import {MdInput} from '@angular2-material/input';
-import {MdCheckbox} from '@angular2-material/checkbox';
-import {MdRadioButton, MdRadioGroup} from '@angular2-material/radio';
-// import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  directives: [
-    MdSidenav,
-    MdSidenavLayout,
-    MdCard,
-    MdList,
-    MdListItem,
-    MdToolbar,
-    MdButton,
-    MdInput,
-    MdCheckbox,
-    MdRadioGroup,
-    MdRadioButton
-  ],
-  providers: [MdUniqueSelectionDispatcher],
+  providers: [],
 })
 export class AppComponent {
   formShowing: boolean = false;

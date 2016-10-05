@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {MdButton} from '@angular2-material/button';
-import {MdCard,MdCardModule,MdCardActions,MdCardContent,MdCardHeader,MdCardSubtitle,MdCardTitle,MdCardTitleGroup} from '@angular/material';
+// import {MdButton} from '@angular2-material/button';
+// import {MdCard,MdCardModule,MdCardActions,MdCardContent,MdCardHeader,MdCardSubtitle,MdCardTitle,MdCardTitleGroup} from '@angular/material';
 
 import {Product} from '../product';
 import {ProductService} from '../product.service';
@@ -10,10 +10,6 @@ import {ProductService} from '../product.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  directives: [
-    MdCard,
-    MdButton,
-  ],
   providers: [ProductService],
 })
 

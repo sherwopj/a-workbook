@@ -10,12 +10,12 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
-import { HomeBannerComponent } from './home-banner/home-banner.component';
+import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeBannerComponent, ProductListComponent
+    AppComponent, LoginComponent, ProductListComponent
   ],
   imports: [
     BrowserModule,

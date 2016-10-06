@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import './rxjs-operators';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [],
+  providers: [MdSnackBar],
 })
 export class AppComponent {
   formShowing: boolean = false;
@@ -23,6 +24,12 @@ export class AppComponent {
       routerLink: "products/"
     }
   ];
+
+  
+
+
+
+
   // products: Object[] = [
   //   {name: "dress", imageUrl: "http://www.lindybopusa.com/images/products/zoom/1451996298-20103300.jpg", price: "23.99", sex: "female"},
   //   {name: "cowboy boots", imageUrl: "http://www.alphahacks.com/wp-content/uploads/2013/06/Best-Cowboy-Boots.jpg", price: "99.99", sex: "male"},

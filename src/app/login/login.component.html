@@ -1,15 +1,15 @@
 <div class="login" layout="row" layout-align="center center">
   <div class="form" layout-align="center center">
     <md-card>
-      <md-card-content layout="row">
-        <form layout="row">
-          <md-input placeholder="your@email.address"></md-input>
-          <md-input placeholder="password"></md-input>
-        </form>
-      </md-card-content>
-      <md-card-actions align="end">
-        <button md-raised-button color="accent">Login</button>
-      </md-card-actions>
+      <form layout="row" (ngSubmit)="login()">
+        <md-card-content layout="row">
+            <md-input [(ngModel)]="model.userEmail" name="email" type="email" class="validate" placeholder="your@email.address" style="width: 100%"></md-input>
+            <md-input [(ngModel)]="model.userPassword" name="password" type="password" class="validate" placeholder="password" style="width: 100%"></md-input>
+        </md-card-content>
+        <md-card-actions align="end">
+          <button md-raised-button color="accent" type="submit">Login</button>
+        </md-card-actions>
+      </form>
     </md-card>
   </div>
 </div>

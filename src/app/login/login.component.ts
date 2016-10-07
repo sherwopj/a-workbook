@@ -23,18 +23,29 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        let sessionResponse;
         this.loading = true;
         this.authenticationService.login(this.model.userEmail, this.model.userPassword)
             .subscribe(
-                data => {
-                    this.router.navigate(['/']);
-                    this.alertService.success('Log in successful', true);
+                response => {
+                    console.log("got a response from 1st call!")
+                    sessionResponse = response;
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
                 });
          //confirm returned token is good
-                
+        //  this.authenticationService.verifySession(sessionResponse)
+        //     .subscribe(
+        //         response => {
+        //             console.log("got a response from 2st call!")
+        //             this.router.navigate(['/']);
+        //             this.alertService.success('Log in successful', true);
+        //         },
+        //         error => {
+        //             this.alertService.error(error);
+        //             this.loading = false;
+        //         });
     }
 }

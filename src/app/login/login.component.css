@@ -18,7 +18,7 @@
 }
 
 /* Change the white to any color ;) */
-input:-webkit-autofill {
+input, select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 

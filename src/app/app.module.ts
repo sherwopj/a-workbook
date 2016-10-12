@@ -14,13 +14,15 @@ import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { WorkflowListComponent } from './workflow-list/workflow-list/workflow-list.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     LoginComponent, 
     ProductListComponent,
-    AlertComponent
+    AlertComponent,
+    WorkflowListComponent
   ],
   imports: [
     BrowserModule,

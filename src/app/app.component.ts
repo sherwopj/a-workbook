@@ -1,12 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import './rxjs-operators';
-import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MdSnackBar],
+  providers: [],
 })
 export class AppComponent {
   formShowing: boolean = false;
@@ -18,6 +17,12 @@ export class AppComponent {
       routerLink: ""
     },
     {
+      name: "Workflows",
+      description: "Show me the workflows!",
+      icon: "dashboard",
+      routerLink: "workflows/"
+    },
+    {
       name: "Product List",
       description: "Show me the products!",
       icon: "view_module",
@@ -25,7 +30,7 @@ export class AppComponent {
     }
   ];
 
-  
+
 
 
 

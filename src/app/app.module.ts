@@ -14,15 +14,19 @@ import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { WorkflowListComponent } from './workflow-list/workflow-list/workflow-list.component';
+import { WorkflowListComponent } from './workflow-list/workflow-list.component';
+import { UserComponent } from './user/user.component';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    LoginComponent, 
+    AppComponent,
+    LoginComponent,
     ProductListComponent,
     AlertComponent,
-    WorkflowListComponent
+    WorkflowListComponent,
+    UserComponent,
+    TicketListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +36,10 @@ import { WorkflowListComponent } from './workflow-list/workflow-list/workflow-li
     routing
   ],
   providers: [
-        AuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

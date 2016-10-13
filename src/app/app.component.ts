@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import './rxjs-operators';
 
 @Component({
@@ -8,7 +8,7 @@ import './rxjs-operators';
   providers: [],
 })
 export class AppComponent {
-  formShowing: boolean = false;
+
   views: Object[] = [
     {
       name: "Home",
@@ -27,8 +27,17 @@ export class AppComponent {
       description: "Show me the products!",
       icon: "view_module",
       routerLink: "products/"
+    },
+    {
+      name: "User Profile",
+      description: "Show me my profile!",
+      icon: "face",
+      routerLink: "user/"
     }
   ];
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AlertService, AuthenticationService } from '../_services/index';
@@ -9,6 +9,7 @@ import { AlertService, AuthenticationService } from '../_services/index';
 })
 
 export class LoginComponent implements OnInit {
+
     model: any = {};
     loading = false;
 
@@ -27,14 +28,14 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.userEmail, this.model.userPassword)
             .subscribe(
-                response => {
-                    console.log("got a response from 1st call!");
-                    this.router.navigate(["/"]);
-                },
-                error => {
-                    console.log("error while attempting to login: "+error);
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+            response => {
+                console.log("got a response from 1st call!");
+                this.router.navigate(["/"]);
+            },
+            error => {
+                console.log("error while attempting to login: " + error);
+                this.alertService.error(error);
+                this.loading = false;
+            });
     }
 }

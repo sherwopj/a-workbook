@@ -1,52 +1,24 @@
 <md-sidenav-layout fullscreen>
-  <md-sidenav #sidenav>
-    <md-nav-list>
-      <a md-list-item *ngFor="let view of views" routerLink="{{view.routerLink}}" (click)="sidenav.close()">
-        <md-icon md-list-icon>{{view.icon}}</md-icon>
-        <span md-line>{{view.name}}</span>
-        <span md-line class="secondary">{{view.description}}</span>
-      </a>
-    </md-nav-list>
-  </md-sidenav>
+	<md-sidenav #sidenav>
+		<md-nav-list>
+			<a md-list-item *ngFor="let view of views" routerLink="{{view.routerLink}}" (click)="sidenav.close()">
+				<md-icon md-list-icon>{{view.icon}}</md-icon>
+				<span md-line>{{view.name}}</span>
+				<span md-line class="secondary">{{view.description}}</span>
+			</a>
+		</md-nav-list>
+	</md-sidenav>
 
-  <md-toolbar color="primary">
-    <button md-icon-button (click)="sidenav.open()">
+	<md-toolbar color="primary">
+		<button md-icon-button (click)="sidenav.open()">
       <md-icon>
         menu
       </md-icon>
     </button>
-    <img class="logo" src="../assets/images/aWorkbook-logo.png" alt="aWorkbook logo">
-    <button md-fab (click)="formShowing=!formShowing">
-      <md-icon>find_replace</md-icon>
-    </button>
-  </md-toolbar>
+		<img class="logo" src="../assets/images/aWorkbook-logo.png" alt="aWorkbook logo">
+		<ticket-list></ticket-list>
+	</md-toolbar>
 
-  <alert></alert>
-  
-  <div class="form" *ngIf="formShowing">
-    <md-card>
-      <md-card-title>Filter Products</md-card-title>
-      <md-card-content layout="row">
-        <form layout="row">
-          <md-input placeholder="short desciption"></md-input>
-          <div>
-            <md-radio-group title="sex">
-              <md-radio-button value="male">male</md-radio-button>
-              <md-radio-button value="female">female</md-radio-button>
-            </md-radio-group>
-          </div>
-          <span></span>
-          <div>
-            <md-checkbox indeterminate="true">favorite</md-checkbox>
-          </div>
-        </form>
-      </md-card-content>
-      <md-card-actions align="end">
-        <button md-raised-button color="accent">POST</button>
-      </md-card-actions>
-    </md-card>
-  </div>
-  
-<router-outlet></router-outlet>
 
+	<router-outlet></router-outlet>
 </md-sidenav-layout>

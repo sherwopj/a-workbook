@@ -26,6 +26,7 @@ export class AuthenticationService {
                 console.log("loginResponse.sessionKey: " + loginResponse.sessionKey);
                 console.log("loginResponse.userEmail: " + loginResponse.userEmail);
                 console.log("millisecondsSinceEpoch: " + this.millisecondsSinceEpoch);
+                localStorage.setItem('user-name', userEmail.split('@', 1))
                 this.setSessionHeaders(loginResponse);
             })
     }

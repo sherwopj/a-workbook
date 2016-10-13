@@ -1,0 +1,20 @@
+
+.secondary {
+  color: rgba(0,0,0,0.54);
+}
+
+[md-fab] {
+  position: absolute;
+  right: 3%;
+  top: 34px;
+  z-index: 3;
+  color: white;
+}
+
+.tickets {
+  width: 50%;
+  position: absolute;
+  right: 3%;
+  top: 64px;
+  z-index: 2;
+}

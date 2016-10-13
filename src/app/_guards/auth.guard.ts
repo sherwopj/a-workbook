@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
                 console.log("sessionIsValid: " + sessionIsValid.valueOf());
                 return true;
             } else {
-                console.log("else sessionIsValid: " + sessionIsValid.valueOf());
+                console.log("sessionIsValid: " + sessionIsValid.valueOf());
                 this.router.navigate(['/login']);
             }
         }, error => {

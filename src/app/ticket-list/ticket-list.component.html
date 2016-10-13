@@ -1,0 +1,19 @@
+<button md-fab (click)="ticketsShowing=!ticketsShowing">
+      <md-icon>receipt</md-icon>
+</button>
+<div class="tickets" *ngIf="ticketsShowing">
+	<md-card style="background: rgba(250,250,250,0.85);">
+		<md-list>
+			<md-list-item *ngFor="let ticket of tickets" style="background: rgba(255,255,255,1.0);">
+				<md-icon md-list-avatar>{{ticket.type}}</md-icon>
+				<p md-line>{{ticket.message}}</p>
+				<p md-line>{{ticket.message}}</p>
+				<md-card-actions>
+					<button md-mini-fab color="primary" (click)="acknowledge">
+					<md-icon>done</md-icon>
+				</button>
+				</md-card-actions>
+			</md-list-item>
+		</md-list>
+	</md-card>
+</div>

@@ -1,3 +1,25 @@
-<p>
-  workflow-list works!
-</p>
+<div class="card-container">
+	<md-card *ngFor="let product of products">
+		<!--<md-card-header>
+        <md-card-header-text>
+          {{product.productType}}
+        </md-card-header-text>
+      </md-card-header>-->
+		<img md-card-image [alt]="product.shortDescription" src="{{product.imageUrl}}">
+
+		<!--<md-card-content class="secondary">
+        Very ipsum such dolor amet wow very divs very content concern, very much develop much spans
+        much layer so so scare such spans such padding many beta very layer much excuse.
+      </md-card-content>-->
+		<!--<md-card-content layout="row" layout-align="space-between center">
+        <md-card-header-text>
+          {{product.productType}}
+        </md-card-header-text>
+      </md-card-content>-->
+		<div layout="row" layout-align="space-between center">
+
+			£{{product.price}}
+			<button md-icon-button color="primary"><md-icon>favorite_border</md-icon></button>
+		</div>
+	</md-card>
+</div>

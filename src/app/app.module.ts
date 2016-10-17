@@ -11,12 +11,13 @@ import { routing } from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, DebugService } from './_services/index';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { WorkflowListComponent } from './workflow-list/workflow-list.component';
 import { UserComponent } from './user/user.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { DebugComponent } from './debug/debug.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
     AlertComponent,
     WorkflowListComponent,
     UserComponent,
-    TicketListComponent
+    TicketListComponent,
+    DebugComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService
+    UserService,
+    DebugService
   ],
   bootstrap: [AppComponent]
 })

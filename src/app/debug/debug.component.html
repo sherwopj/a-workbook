@@ -1,0 +1,54 @@
+<div class="card-container" layout="row">
+	<md-card>
+		<md-card-title>
+			aHub api header generator
+		</md-card-title>
+		<md-card-content>
+			<!--<md-card-subtitle>
+				current session info
+			</md-card-subtitle>
+			<p>sessionExpiry: {{sessionExpiry}}</p>
+			<p>sessionId: {{sessionId}}</p>
+			<p>sessionKey: {{sessionKey}}</p>
+			<p>userEmail: {{userEmail}}</p>
+
+			<br><br>-->
+			<md-card-subtitle>
+				Build your auth signature payload
+			</md-card-subtitle>
+
+			<!--<md-select name="httpMethod" [(ngModel)]="item" (change)="change($event)"
+			[disabled]="disabled">
+			<md-option *ngFor="let i of items" [value]="i.value" [disabled]="i.disabled">{{i.name}}</md-option>
+		</md-select>-->
+			<label for="host">Host: </label>
+			<md-input name="host" [(ngModel)]="host" type="text" autocomplete="on"></md-input>
+			<br><br>
+			<label for="http-method">Http Method: </label>
+			<select class="form-control" (ngModelChange)="setHttpMethod($event)" [(ngModel)]="selectedMethod" name="http-method">
+      <option *ngFor="let method of methods" [ngValue]="method" > {{method.name}} </option>
+    </select>
+			<br><br>
+			<label for="api-endppint">API Endpoint: </label>
+			<md-input name="api-endpoint" [(ngModel)]="apiEndpoint" (ngModelChange)="updateEndpoint($event)"></md-input>
+			<br><br>
+			<label for="json-payload">JSON Payload: </label>
+			<textarea name="json-payload" class="payloadTextArea " [(ngModel)]='jsonPayloadValue'></textarea>
+		</md-card-content>
+	</md-card>
+	<md-card style="width: 60%">
+		<label for="signature-payload">Auth Signature Payload: </label>
+		<textarea class="payloadTextArea " [(ngModel)]='signaturePayloadValue' disabled></textarea>
+		<br><br>
+		<label>Headers: </label>
+		<br><br>
+		<md-card-subtitle>hark-auth-session-id: {{harkAuthSessionId}}</md-card-subtitle>
+		<md-card-subtitle>hark-auth-timestamp: {{harkAuthTimestamp}}</md-card-subtitle>
+		<md-card-subtitle>hark-auth-signature: {{harkAuthSignature}}</md-card-subtitle>
+		<button md-raised-button color="primary" (click)="sendIt()">SEND</button>
+	</md-card>
+	<br><br>
+	<md-card style="width: 90%" *ngIf="results">
+		Results: <br><br>{{results}}
+	</md-card>
+</div>

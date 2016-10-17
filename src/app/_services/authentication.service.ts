@@ -9,7 +9,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AuthenticationService {
 
+    //private loginUrl = "http://192.168.4.57:8080/accounts/user/session/credentials";
     private loginUrl = "https://api.beta.ahub.harksolutions.net/accounts/user/session/credentials";
+    //private loginCheckUrl = "http://192.168.4.57:8080/accounts/userId";
     private loginCheckUrl = "https://api.beta.ahub.harksolutions.net/accounts/userId";
     private millisecondsSinceEpoch;
 
@@ -22,12 +24,15 @@ export class AuthenticationService {
                 let loginResponse = response.json();
 
                 console.log("loginResponse.sessionExpiry: " + loginResponse.sessionExpiry);
+                localStorage.setItem('sessionExpiry', loginResponse.sessionExpiry);
                 console.log("loginResponse.sessionId: " + loginResponse.sessionId);
+                localStorage.setItem('sessionId', loginResponse.sessionId);
                 console.log("loginResponse.sessionKey: " + loginResponse.sessionKey);
+                localStorage.setItem('sessionKey', loginResponse.sessionKey);
                 console.log("loginResponse.userEmail: " + loginResponse.userEmail);
-                console.log("millisecondsSinceEpoch: " + this.millisecondsSinceEpoch);
+                localStorage.setItem('userEmail', loginResponse.userEmail);
                 localStorage.setItem('user-name', userEmail.split('@', 1))
-                this.setSessionHeaders(loginResponse);
+                this.setSessionHeaders();
             })
     }
 
@@ -36,18 +41,18 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
     }
 
-    setSessionHeaders(loginResponse) {
+    setSessionHeaders() {
         this.millisecondsSinceEpoch = (new Date).getTime().toString();
-        localStorage.setItem('hark-auth-session-id', loginResponse.sessionId.toString());
+        localStorage.setItem('hark-auth-session-id', localStorage.getItem('sessionId').toString());
         console.log('hark-auth-session-id:' + localStorage.getItem('hark-auth-session-id'))
         localStorage.setItem('hark-auth-timestamp', this.millisecondsSinceEpoch);
         console.log('hark-auth-timestamp:' + localStorage.getItem('hark-auth-timestamp'))
-        localStorage.setItem('session-key', loginResponse.sessionKey.toString());
+        localStorage.setItem('session-key', localStorage.getItem('sessionKey').toString());
         console.log('session-key:' + localStorage.getItem('session-key'))
-        localStorage.setItem('hark-auth-signature', this.buildAuthSignature(loginResponse));
+        localStorage.setItem('hark-auth-signature', this.buildAuthSignature());
     }
 
-    buildAuthSignature(loginResponse) {
+    buildAuthSignature() {
         let loginResponseInAlphabeticalOrderAsText = "GET\n" +
             "\/accounts\/userId\n" +
             "hark-auth-session-id:" + localStorage.getItem('hark-auth-session-id') + "\n" +

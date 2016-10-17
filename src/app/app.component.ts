@@ -33,6 +33,12 @@ export class AppComponent {
       description: "Show me my profile!",
       icon: "face",
       routerLink: "user/"
+    },
+    {
+      name: "Debug",
+      description: "Handy dev bits",
+      icon: "cake",
+      routerLink: "debug/"
     }
   ];
 

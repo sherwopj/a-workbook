@@ -29,3 +29,12 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Publish to AWS
+
+# you'll need to build the project. this will compile any typescript and flattened the html and js
+ng build
+
+# then you'll need to use 'gulp' to publish the static html and js to s3
+
+gulp awspublish

@@ -32,9 +32,9 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 ## Publish to AWS
 
-# you'll need to build the project. this will compile any typescript and flattened the html and js
+1. you'll need to build the project. this will compile any typescript and flattened the html and js
 ng build
 
-# then you'll need to use 'gulp' to publish the static html and js to s3
+2. then you'll need to use 'gulp' to publish the static html and js to s3
 
 gulp awspublish

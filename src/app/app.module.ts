@@ -28,7 +28,7 @@ import { DebugComponent } from './debug/debug.component';
     WorkflowListComponent,
     UserComponent,
     TicketListComponent,
-    DebugComponent
+    DebugComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +42,7 @@ import { DebugComponent } from './debug/debug.component';
     AlertService,
     AuthenticationService,
     UserService,
-    DebugService
+    DebugService,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,11 +5,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { DebugService } from '../_services/debug.service'
+import { Parameter } from '../parameter'
 
 @Component({
   selector: 'app-debug',
   templateUrl: './debug.component.html',
-  styleUrls: ['./debug.component.css']
+  styleUrls: ['./debug.component.css'],
 })
 
 export class DebugComponent implements OnInit {
@@ -18,13 +19,18 @@ export class DebugComponent implements OnInit {
   private sessionKey: string;
   private userEmail: string;
   private apiEndpoint: string;
+  private parameterKey: string;
+  private parameterValue: string;
+
   private httpMethod: string;
   private host: string;
   private harkAuthSessionId: string;
   private harkAuthTimestamp: string;
   private mymodel: any = "";
   private signaturePayload: any = [];
+  private parameters: Parameter[] = [];
   private results: string;
+  private errorMessage: string;
   private methods: any;
   private selectedMethod;
 
@@ -40,6 +46,8 @@ export class DebugComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateHarkAuthTimeout();
+    this.httpMethod = 'get';
     this.sessionExpiry = localStorage.getItem('sessionExpiry');
     this.harkAuthSessionId = localStorage.getItem('sessionId');
     this.sessionKey = localStorage.getItem('sessionKey');
@@ -67,18 +75,21 @@ export class DebugComponent implements OnInit {
     this.signaturePayload[0] = value.name;
   }
 
-  private updateEndpoint(value: any) {
+  private updateEndpoint(value: string) {
     console.log("Endpoint: ", value);
     this.signaturePayload[1] = value;
+  }
+
+  addParameter(value: string) {
+    console.log("parameterKey: " + this.parameterKey)
+    console.log("parameterValue: " + this.parameterValue)
+    let parameter = new Parameter(this.parameterKey, this.parameterValue);
+    this.parameters.push(parameter);
   }
 
   get signaturePayloadValue() {
     return this.signaturePayload.join('\n');
   }
-
-  // get signatureJsonPayloadValue() {
-  //   return JSON.stringify("bum", null, 4);
-  // }
 
   set signaturePayloadValue(signaturePayload) {
     console.log("should change generated signature!")
@@ -105,22 +116,39 @@ export class DebugComponent implements OnInit {
 
   sendIt() {
     //update the timestamp just before making call
-    this.updateHarkAuthTimeout();
+    //this.updateHarkAuthTimeout();
 
     // this.results = "";
-    let headers = new Headers({ 'hark-auth-session-id': this.harkAuthSessionId });
-    headers.append('hark-auth-timestamp', this.harkAuthTimestamp);
-    headers.append('hark-auth-signature', this.harkAuthSignature);
-    console.log("headers: " + headers.values())
-    let options = new RequestOptions({ headers: headers });
-
     let url = this.host + this.apiEndpoint;
     console.log("url: " + url);
 
-    this.debugService.getResults(url, options).subscribe(
-      res => this.results = res
-    );
-    console.log("results: " + this.results);
+    let body = JSON.stringify(this.jsonPayloadValue);
+
+    let headers = new Headers({ 'hark-auth-session-id': this.harkAuthSessionId });
+    headers.append('hark-auth-timestamp', this.harkAuthTimestamp);
+    headers.append('hark-auth-signature', this.harkAuthSignature);
+    headers.append('content-type', 'application/json');
+    console.log("headers: " + headers.values())
+    let options = new RequestOptions({ headers: headers });
+
+
+    switch (this.httpMethod) {
+      case 'get':
+        this.debugService.get(url, options)
+          .subscribe(
+          res => this.results = res,
+          error => this.errorMessage = <any>error
+          );
+        break;
+      case 'put':
+        this.debugService.put(url, body, options).subscribe(res => this.results = res);
+        break;
+      case 'post':
+        this.debugService.post(url, body, options).subscribe(res => this.results = res);
+        break;
+    }
+
+    console.log("results: " + this.errorMessage);
   }
 
 }
